@@ -1,18 +1,12 @@
 <template>
     <div id="app">
-        <div v-if="role=='admin'">
-            <router-view></router-view>
-        </div>
-        <div v-else>
             <NavBar />
-
             <div class="auth-wrapper">
                 <div class="auth-inner">
                     <router-view></router-view>
                 </div>
             </div>
             <FooterComponent />
-        </div>
     </div>
 </template>
 
@@ -20,7 +14,7 @@
 import NavBar from './components/NavBar.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import { mapActions } from 'vuex';
-import { mapState } from 'vuex';
+// import { mapState } from 'vuex';
 export default {
     name: 'App',
     components: {
@@ -33,7 +27,9 @@ export default {
     },
 
     computed: {
-        ...mapState(["role"])
+        loggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+        },
     },
 
     methods: {

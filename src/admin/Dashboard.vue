@@ -22,7 +22,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                  
+
                 </tbody>
             </table>
         </div>
@@ -32,13 +32,13 @@
 
 <script>
 import axios from "axios";
-import { mapState, mapMutations } from "vuex";
+import { mapState } from "vuex";
 export default {
     name: 'Dashboard',
     computed: {
-        ...mapState(["allFoods", "isLoggedIn"]),
+        ...mapState(["allFoods"]),
 
-       
+
     },
     data() {
         return {
@@ -47,14 +47,12 @@ export default {
     },
 
     created() {
-        this.getAllBills();
-        if (!this.admin) {
-            this.$router.push("/");
-        }
+        //  this.getAllBills();
+
     },
 
     mounted: function () {
-        this.autoUpdate();
+        // this.autoUpdate();
     },
 
     beforeUnmount() {
@@ -62,14 +60,19 @@ export default {
     },
 
     methods: {
-         ...mapMutations(["setLogout"]),
         async getAllBills() {
             this.allBills = (await axios.get('/billstatus')).data;
         },
 
         handleLogout: function () {
-            this.setLogout();
-            this.$router.push("/");
+            this.$store.dispatch("auth/logout").then(
+                () => {
+                    this.$router.push("/");
+                }, (error) => {
+                    console.log(error);
+                    this.errors.push(error.message);
+                }
+            );
         },
 
     },

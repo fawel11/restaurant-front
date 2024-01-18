@@ -13,11 +13,11 @@
 
         <div class="icons">
             <div id="menu-btn" class="fas fa-bars menu-btn" @click="showNav"></div>
-            <router-link @click="scrollToTop()" to="cart">
+            <router-link @click="scrollToTop()" to="/cart">
                 <div class="fas fa-shopping-cart cart"></div>
             </router-link>
 
-            <div v-if="!user" class="fas fa-user account" @click="showLog">
+            <div v-if="!isLoggedIn" class="fas fa-user account" @click="showLog">
                 <ul class="drop-down-select">
                     <li>
                         <router-link @click="scrollToTop()" to="/login">login</router-link>
@@ -45,12 +45,13 @@
 </template>
 
 <script>
-import { mapState, mapMutations } from "vuex";
 export default {
     name: 'NavBar',
 
     computed: {
-        ...mapState(["user"])
+        isLoggedIn() {
+            return this.$store.state.auth.status.loggedIn;
+        }
     },
 
     mounted() {
@@ -61,8 +62,6 @@ export default {
     },
 
     methods: {
-        ...mapMutations(["setUser"]),
-
         scrollToTop() {
             window.scrollTo(0, 0);
         },
@@ -88,8 +87,15 @@ export default {
         },
 
         handleLogout: function () {
-            this.setUser("");
-        }
+            this.$store.dispatch("auth/logout").then(
+                () => {
+                    this.$router.push("/");
+                }, (error) => {
+                    console.log(error);
+                    this.errors.push(error.message);
+                }
+            );
+        },
     }
 }
 </script>

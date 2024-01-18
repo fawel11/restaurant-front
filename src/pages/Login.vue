@@ -40,7 +40,7 @@ export default {
 
     data() {
         return {
-            loginObj: { email: "", pass: "" },
+            loginObj: { email: "brittany.vandervort@example.com", pass: "123456" },
             matchUser: undefined,
             errors: [],
         }
@@ -90,7 +90,17 @@ export default {
             }
             else {
                 e.preventDefault();
-                await this.getMatchUser(this.loginObj.email, this.loginObj.pass);
+                // await this.getMatchUser(this.loginObj.email, this.loginObj.pass);
+
+                this.$store.dispatch("auth/login", this.loginObj).then(
+                    () => {
+                        this.$router.push("/admin/dashboard");
+                    },
+                    (error) => {
+                        console.log(error);
+                        this.errors.push(error.message);
+                    }
+                );
 
             }
         }
