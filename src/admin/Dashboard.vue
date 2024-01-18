@@ -1,10 +1,5 @@
 <template>
     <div class="admin-container">
-        <div class="d-flex justify-content-between">
-            <h1>Hello Admin!</h1>
-            <button class="btn" @click="handleLogout()">Logout</button>
-        </div>
-
         <div class="table-responsive">
             <!-- PROJECT TABLE -->
             <table class="table colored-header datatable project-list">
