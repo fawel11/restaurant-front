@@ -73,7 +73,7 @@ html::-webkit-scrollbar-thumb {
 }
 
 /* Adjust font size for Bootstrap forms */
-.form-control {
+.form-control, form {
   font-size: 1.6rem; /* Adjust the font size as needed */
 }
 
@@ -84,12 +84,12 @@ html::-webkit-scrollbar-thumb {
 
 @media (max-width: 768px) {
   html {
-    font-size: 55%;
+    font-size: 0.6rem;
   }
 }
 
 @media (max-width: 576px) {
   html {
-    font-size: 50%;
+    font-size: 0.6rem;
   }
 }

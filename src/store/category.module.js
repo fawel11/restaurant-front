@@ -20,6 +20,16 @@ export const category = {
           return Promise.resolve(response.data);
         });
     },
+    storeCategory(_,requestObj) {
+      return axios.post("category/store", requestObj).then((response) => {
+        return Promise.resolve(response.data);
+      })
+      .catch((error) => {
+        // Handle errors if necessary
+        console.error("Error in storeCategory action:", error);
+        return Promise.reject(error);
+      });
+    },
   },
   mutations: {
     updateCategoryList(state, categories) {

@@ -106,6 +106,14 @@ const routes = [
     },
     component: () => import("@/pages/category/Index.vue"),
   },
+  {
+    path: "/category/add/:categoryId?",
+    name: "admin-category-add",
+    meta: {
+      layout: "LayoutPrivate",
+    },
+    component: () => import("@/pages/category/Add.vue"),
+  },
   /*   {
     path: '/:pathMatch(.*)*',
     component: Home,
