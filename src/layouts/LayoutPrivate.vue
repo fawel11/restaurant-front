@@ -1,11 +1,11 @@
 <template>
     <div>
         <NavBar />
-        <div class="container">
-            <div class="container-fluid">
+       
+            <div class="container-fluid mt-4">
                 <router-view></router-view>
             </div>
-        </div>
+     
 
         <PrivateFooter />
     </div>
