@@ -33,11 +33,9 @@
 
 
 <script>
-import axios from "axios";
 import { mapMutations } from "vuex";
 export default {
     name: 'Login',
-
     data() {
         return {
             loginObj: { email: "brittany.vandervort@example.com", pass: "123456" },
@@ -51,20 +49,6 @@ export default {
 
         scrollToTop() {
             window.scrollTo(0, 0);
-        },
-
-        async getMatchUser(email, password) {
-            try {
-                let data = await axios.post('/auth/login', { email, password });
-                console.log(data);
-
-                this.setUser(data.data);
-                this.$router.push("/admin/dashboard");
-            } catch (error) {
-                // Handle errors, e.g., display an error message
-                console.error("Error in getMatchUser:", error);
-                this.errors.push(error.message);
-            }
         },
 
 
@@ -111,6 +95,15 @@ export default {
 </script>
 
 <style scoped>
+
+.btn {
+    padding: .7rem 1.8rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #fff;
+    background: #27ae60;
+    border-radius: .5rem;
+}
 .login-container {
     padding: 2rem 9%;
 }
