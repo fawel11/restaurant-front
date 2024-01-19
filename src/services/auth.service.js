@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "@/axios";
 
 class AuthService {
   login(loginObj) {
@@ -9,11 +9,11 @@ class AuthService {
       })
       .then((response) => {
         if (response.data.accessToken) {
-          localStorage.setItem("accessToken", JSON.stringify(response.data.accessToken));
+          localStorage.setItem("accessToken", response.data.accessToken);
         }
         localStorage.setItem("user", JSON.stringify(response.data.user));
 
-        console.log(response.data);
+        //console.log(response.data);
 
         return response.data.user;
       });

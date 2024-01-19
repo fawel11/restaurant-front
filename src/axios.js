@@ -20,6 +20,10 @@ const instance = axios.create({
   },
 });
 instance.interceptors.request.use((config) => {
+  const latestToken = localStorage.getItem("accessToken");
+  if (latestToken) {
+    config.headers.common.Authorization = `Bearer ${latestToken}`;
+  }
   return config;
 });
 
