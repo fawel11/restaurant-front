@@ -53,15 +53,6 @@ html::-webkit-scrollbar-thumb {
     color: #130f40;
 }
 
-.btn {
-    padding: .7rem 1.8rem;
-    font-size: 1.7rem;
-    cursor: pointer;
-    color: #fff;
-    background: #27ae60;
-    border-radius: .5rem;
-}
-
 .btn:hover {
     background-color: #f38609;
     color: #fff;
