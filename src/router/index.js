@@ -83,8 +83,24 @@ const routes = [
     },
   },
   {
-    path: "/category",
-    name: "AllCategory",
+    path: "/item/:itemId?",
+    name: "admin-all-item",
+    meta: {
+      layout: "LayoutPrivate",
+    },
+    component: () => import("@/pages/category/Index.vue"),
+  },
+  {
+    path: "/discount/:discountId?",
+    name: "admin-all-discount",
+    meta: {
+      layout: "LayoutPrivate",
+    },
+    component: () => import("@/pages/category/Index.vue"),
+  },
+  {
+    path: "/category/:categoryId?",
+    name: "admin-all-category",
     meta: {
       layout: "LayoutPrivate",
     },
