@@ -65,7 +65,7 @@ const routes = [
     name: "Thank",
     component: Thank,
   },
- 
+
   {
     path: "/admin/dashboard",
     name: "Dashboard",
@@ -74,13 +74,21 @@ const routes = [
       layout: "LayoutPrivate",
     },
   },
-   {
+  {
     path: "/myorder",
     name: "MyOrder",
     component: MyOrder,
     meta: {
       layout: "LayoutPrivate",
     },
+  },
+  {
+    path: "/category",
+    name: "AllCategory",
+    meta: {
+      layout: "LayoutPrivate",
+    },
+    component: () => import("@/pages/category/Index.vue"),
   },
   /*   {
     path: '/:pathMatch(.*)*',
