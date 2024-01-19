@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <component :is="this.$route.meta.layoutComponent">
-            <slot />
-        </component>
-    </div>
+    <component :is="this.$route.meta.layoutComponent">
+        <slot />
+    </component>
 </template>
 
 <script>
@@ -15,5 +13,6 @@ export default {
 
 <style>
 @import "./assets/css/global_style.css";
+@import "./assets/css/menu.css";
 </style>
 
