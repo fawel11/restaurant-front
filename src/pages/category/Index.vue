@@ -19,12 +19,16 @@
                         <td> {{ category.children.length }} </td>
                         <td> {{ category.items.length }} </td>
                         <td>
-                            <router-link v-if="category.items.length"
-                                :to="{ name: 'admin-all-category', params: { categoryId: category.id } }" type="button"
-                                class="btn btn-outline-primary btn-sm">New Item</router-link>
+                            <router-link :to="{ name: 'admin-all-category', params: { categoryId: category.id } }"
+                                type="button" class="btn btn-outline-primary btn-sm">New Item</router-link>
 
-                            <router-link v-else :to="{ name: 'admin-category-add', params: { categoryId: category.id } }"
-                                type="button" class="btn btn-outline-primary btn-sm">New Sub Category</router-link>
+                            <router-link v-if="!category.items.length"
+                                :to="{ name: 'admin-category-add', params: { categoryId: category.id } }" type="button"
+                                class="btn btn-outline-primary btn-sm">New Sub Category</router-link>
+
+                            <router-link v-if="category.children.length"
+                                :to="{ name: 'admin-all-category', params: { categoryId: category.id } }" type="button"
+                                class="btn btn-outline-primary btn-sm">Sub Category</router-link>
                         </td>
                     </tr>
                 </tbody>
