@@ -7,28 +7,19 @@
                     <tr class="bg-light-gray">
                         <th class="text-uppercase">S/L</th>
                         <th class="text-uppercase">Name</th>
-                        <th class="text-uppercase">Sub Category</th>
-                        <th class="text-uppercase">Items</th>
+                        <th class="text-uppercase">Category</th>
                         <th class="text-uppercase">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="(category, index ) in catObj.data" :key="category.id">
+                    <tr v-for="(item, index ) in responseObj.data" :key="item.id">
                         <td class="align-middle">{{ index + 1 }}</td>
-                        <td> {{ category.name }} </td>
-                        <td> {{ category.children.length }} </td>
-                        <td> {{ category.items.length }} </td>
+                        <td> {{ item.name }} </td>
+                        <td> {{ item.category?.name }} </td>
                         <td>
-                            <router-link :to="{ name: 'admin-all-item', params: { categoryId: category.id } }"
+                            <router-link :to="{ name: 'admin-all-item', params: { categoryId: item.id } }"
                                 type="button" class="btn btn-outline-primary btn-sm">New Item</router-link>
 
-                            <router-link v-if="!category.items.length"
-                                :to="{ name: 'admin-category-add', params: { categoryId: category.id } }" type="button"
-                                class="btn btn-outline-primary btn-sm">New Sub Category</router-link>
-
-                            <router-link v-if="category.children.length"
-                                :to="{ name: 'admin-all-category', params: { categoryId: category.id } }" type="button"
-                                class="btn btn-outline-primary btn-sm">Sub Category</router-link>
                         </td>
                     </tr>
                 </tbody>
@@ -51,23 +42,23 @@ export default {
                 paginate: 10,
                 categoryId: this.$route.params.categoryId
             },
-            catObj: {}
+            responseObj: {}
         }
     },
     watch: {
         '$route.params.categoryId'(newCategoryId) {
             this.requestObj.categoryId = newCategoryId;
-            this.getCaltegoryList();
+            this.getItemList();
         }
     },
 
     methods: {
-        async getCaltegoryList() {
+        async getItemList() {
             try {
                 this.$store.dispatch("item/fetchItemList", this.requestObj).then(
                     (data) => {
                         console.log(data);
-                        this.catObj = data
+                        this.responseObj = data
                     },
                     (error) => {
                         console.log(error);
@@ -79,7 +70,7 @@ export default {
         },
     },
     created() {
-        this.getCaltegoryList();
+        this.getItemList();
     }
 }
 </script>
