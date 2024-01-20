@@ -83,22 +83,6 @@ const routes = [
     },
   },
   {
-    path: "/item/:itemId?",
-    name: "admin-all-item",
-    meta: {
-      layout: "LayoutPrivate",
-    },
-    component: () => import("@/pages/category/Index.vue"),
-  },
-  {
-    path: "/discount/:discountId?",
-    name: "admin-all-discount",
-    meta: {
-      layout: "LayoutPrivate",
-    },
-    component: () => import("@/pages/category/Index.vue"),
-  },
-  {
     path: "/category/:categoryId?",
     name: "admin-all-category",
     meta: {
@@ -130,6 +114,22 @@ const routes = [
       layout: "LayoutPrivate",
     },
     component: () => import("@/pages/item/Add.vue"),
+  },
+  {
+    path: "/discount/:categoryId?",
+    name: "admin-all-discount",
+    meta: {
+      layout: "LayoutPrivate",
+    },
+    component: () => import("@/pages/discount/Index.vue"),
+  },
+  {
+    path: "/discount/add/:categoryId?",
+    name: "admin-discount-add",
+    meta: {
+      layout: "LayoutPrivate",
+    },
+    component: () => import("@/pages/discount/Add.vue"),
   },
   /*   {
     path: '/:pathMatch(.*)*',

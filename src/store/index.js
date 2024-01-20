@@ -2,13 +2,15 @@ import { createStore } from "vuex";
 import { auth } from "./auth.module";
 import { category } from "./category.module";
 import { item } from "./item.module";
+import { discount } from "./discount.module";
 import axios from "axios";
 
 const store = createStore({
   modules: {
     auth,
     category,
-    item
+    item,
+    discount
   },
   state: {
     isLoading:false,
