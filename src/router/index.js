@@ -114,6 +114,23 @@ const routes = [
     },
     component: () => import("@/pages/category/Add.vue"),
   },
+
+  {
+    path: "/item/:categoryId?",
+    name: "admin-all-item",
+    meta: {
+      layout: "LayoutPrivate",
+    },
+    component: () => import("@/pages/item/Index.vue"),
+  },
+  {
+    path: "/item/add/:categoryId?",
+    name: "admin-item-add",
+    meta: {
+      layout: "LayoutPrivate",
+    },
+    component: () => import("@/pages/item/Add.vue"),
+  },
   /*   {
     path: '/:pathMatch(.*)*',
     component: Home,
