@@ -26,8 +26,8 @@ export const category = {
       })
       .catch((error) => {
         // Handle errors if necessary
-        console.error("Error in storeCategory action:", error);
-        return Promise.reject(error);
+      
+        return Promise.reject(error.response.data);
       });
     },
   },
