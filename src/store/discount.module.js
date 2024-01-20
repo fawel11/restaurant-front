@@ -19,13 +19,12 @@ export const discount = {
           return Promise.resolve(response.data);
         });
     },
-    storeItem(_,requestObj) {
+    storeDiscount(_,requestObj) {
       return axios.post("discount/store", requestObj).then((response) => {
         return Promise.resolve(response.data);
       })
       .catch((error) => {
-        // Handle errors if necessary
-      
+        // Handle errors if necessary      
         return Promise.reject(error.response.data);
       });
     },

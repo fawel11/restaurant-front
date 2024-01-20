@@ -41,8 +41,13 @@
                                 :to="{ name: 'admin-category-add', params: { categoryId: category.id } }" type="button"
                                 class="btn btn-outline-primary btn-sm">New Sub Category</router-link>
 
-                            <router-link v-if="!category.children.length" :to="{ name: 'admin-item-add', params: { categoryId: category.id } }"
-                                type="button" class="btn btn-outline-primary btn-sm">New Item</router-link>
+                            <router-link v-if="!category.children.length"
+                                :to="{ name: 'admin-item-add', params: { categoryId: category.id } }" type="button"
+                                class="btn btn-outline-primary btn-sm">New Item</router-link>
+
+                            <router-link
+                                :to="{ name: 'admin-discount-add', params: { categoryId: category.id } }" type="button"
+                                class="btn btn-info btn-sm">Add discount</router-link>
 
 
                         </td>

@@ -4,6 +4,14 @@
         <div class="table-responsive">
             <table class="table table-bordered text-center">
                 <thead>
+                    <tr>
+                        <td colspan="5">
+                           
+                            <router-link
+                                :to="{ name: 'admin-discount-add' }" type="button"
+                                class="btn btn-info btn-sm">Add discount</router-link>
+                        </td>
+                    </tr>
                     <tr class="bg-light-gray">
                         <th class="text-uppercase">S/L</th>
                         <th class="text-uppercase">Type</th>

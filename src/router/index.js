@@ -124,7 +124,7 @@ const routes = [
     component: () => import("@/pages/discount/Index.vue"),
   },
   {
-    path: "/discount/add/:categoryId?",
+    path: "/discount/add/:categoryId?/:itemId?",
     name: "admin-discount-add",
     meta: {
       layout: "LayoutPrivate",

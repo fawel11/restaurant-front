@@ -3,39 +3,26 @@
         <div class="col-lg-6 mx-auto">
             <div class="card mt-2 mx-auto p-4 bg-light">
                 <div class="card-body bg-light">
-
-
                     <form id="contact-form" role="form" @submit.prevent="saveCategory">
                         <div class="controls">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
-                                        <InputComponent v-model="requestObj.name" id="name" type="text" name="name"
-                                            :is-required="true" placeholder="Please enter item *" :errors="errors" />
+                                        <InputComponent v-model="requestObj.value" id="value" type="number" name="value"
+                                            :is-required="true" placeholder="Please enter value *" :errors="errors" />
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <InputComponent v-model="requestObj.amount" id="amount" type="number" name="amount"
-                                            :is-required="true" placeholder="Please enter amount *" :errors="errors" />
-                                    </div>
-                                </div>
+
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <input type="submit" class="btn btn-success btn-send pt-2 btn-block" value="Save">
                                 </div>
-
                             </div>
-
-
                         </div>
                     </form>
-
                 </div>
-
-
             </div>
             <!-- /.8 -->
 
@@ -47,42 +34,37 @@
 </template>
 
 <script>
-import InputComponent from '@/components/InputComponent.vue'; // Adjust the path based on your project structure
+import InputComponent from '@/components/InputComponent.vue';
 
 export default {
     components: {
         InputComponent
     },
-    name: "CategoryAdd",
+    name: "DiscountAdd",
 
     data() {
         return {
             requestObj: {
-                name: "",
-                category_id: this.$route.params.categoryId
+                value: null,
+                type: 'fff',
+                category_id: this.$route.params.categoryId,
+                item_id: this.$route.params.itemId
             },
             catObj: {},
             errors: {}
         }
     },
-    watch: {
-        '$route.params.categoryId'(newCategoryId) {
-            this.requestObj.category_id = newCategoryId;
-        }
-    },
-
     methods: {
         async saveCategory() {
             try {
-                this.$store.dispatch("item/storeItem", this.requestObj).then(
+                this.$store.dispatch("discount/storeDiscount", this.requestObj).then(
                     (data) => {
 
                         this.$toast.fire({
                             icon: "success",
                             title: data.message,
                         });
-                        this.requestObj.name = ''
-                        this.requestObj.amount = 0
+                        this.requestObj.value = 0
                     },
                     (error) => {
                         this.$toast.fire({
