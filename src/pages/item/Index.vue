@@ -17,11 +17,8 @@
                         <td> {{ item.name }} </td>
                         <td> {{ item.category?.name }} </td>
                         <td>
-                            <router-link :to="{ name: 'admin-all-item', params: { categoryId: item.id } }" type="button"
-                                class="btn btn-outline-primary btn-sm">New Item</router-link>
-
-                            <router-link :to="{ name: 'admin-discount-add', params: { itemId: item.id } }"
-                                type="button" class="btn btn-info btn-sm">Add discount</router-link>
+                            <router-link :to="{ name: 'admin-discount-add', params: { itemId: item.id } }" type="button"
+                                class="btn btn-info btn-sm">Add discount</router-link>
 
                         </td>
                     </tr>
