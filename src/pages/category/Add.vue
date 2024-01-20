@@ -78,7 +78,7 @@ export default {
                             title: data.message,
                         });
                         console.log(data);
-                        this.requestObj = {}
+                        this.requestObj.name = "";
                     },
                     (error) => {
                         this.$toast.fire({
