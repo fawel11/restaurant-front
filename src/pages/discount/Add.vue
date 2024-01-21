@@ -50,7 +50,6 @@ export default {
                 category_id: this.$route.params.categoryId,
                 item_id: this.$route.params.itemId
             },
-            catObj: {},
             errors: {}
         }
     },
