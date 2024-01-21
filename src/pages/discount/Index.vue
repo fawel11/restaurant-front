@@ -60,7 +60,10 @@ export default {
                         this.responseObj = data
                     },
                     (error) => {
-                        console.log(error);
+                        this.$toast.fire({
+                            icon: "error",
+                            title: error.message,
+                        });
                     }
                 );
             } catch (error) {
