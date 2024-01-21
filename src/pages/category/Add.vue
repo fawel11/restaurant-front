@@ -4,6 +4,7 @@
             <div class="card mt-2 mx-auto p-4 bg-light">
                 <div class="card-body bg-light">
 
+                    <ErrorComponent :errors="errors" />
 
                     <form id="contact-form" role="form" @submit.prevent="saveCategory">
                         <div class="controls">
@@ -43,11 +44,13 @@
 </template>
 
 <script>
-import InputComponent from '@/components/InputComponent.vue'; // Adjust the path based on your project structure
+import InputComponent from '@/components/InputComponent.vue';
+import ErrorComponent from '@/components/ErrorComponent.vue';
 
 export default {
     components: {
-        InputComponent
+        InputComponent,
+        ErrorComponent
     },
     name: "CategoryAdd",
 
