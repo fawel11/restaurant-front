@@ -7,7 +7,7 @@ const token = localStorage.getItem("accessToken");
 if (process.env.NODE_ENV === "development") {
   baseURL = "http://resapi.test/api/v1";
 } else if (process.env.NODE_ENV === "production") {
-  baseURL = "http://" + window.location.hostname.toString() + ":8081/api";
+  baseURL = "https://restaurant.toybiaconstruction.com/api/v1";
 }
 
 const instance = axios.create({
